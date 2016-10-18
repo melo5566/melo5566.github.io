@@ -170,11 +170,11 @@ module.controller("ShowController", function($scope, $location, anchorSmoothScro
 	    	document.getElementById(sports[3]+1).className = "active";
 	    	document.getElementById(sports[2]+1).className = "";
 	    	document.getElementById(sports[4]+1).className = "";		
-	    } else if (2600 < window.pageYOffset && window.pageYOffset < 3100) {
+	    } else if (2600 < window.pageYOffset && window.pageYOffset < 3200) {
 	    	document.getElementById(sports[4]+1).className = "active";
 	    	document.getElementById(sports[3]+1).className = "";
 	    	document.getElementById(sports[5]+1).className = "";		
-	    } else if (window.pageYOffset > 3100) {
+	    } else if (window.pageYOffset > 3200) {
 	    	document.getElementById(sports[5]+1).className = "active";
 	    	document.getElementById(sports[4]+1).className = "";
 	    }

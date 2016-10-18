@@ -12,7 +12,7 @@ module.config(['$routeProvider',
 				controller: 'ShowController'
 			}).
 			when('/sport/', {
-				templateUrl: 'test.html',
+				templateUrl: 'sport.html',
 				controller: 'ShowController'
 			}).
 			when('/education/', {
@@ -265,6 +265,9 @@ module.controller("UserController", function($scope, $location, userService) {
     for (var i = 0; i < Math.ceil($scope.users.length/$scope.numPerPage); i++)
         $scope.pages[i] = i+1;
 
+    $scope.back = function() {
+        $location.path("projects");
+    };
     $scope.editUser = function(id) {
         userService.getEditId(id);
         $location.path('edit');
@@ -308,8 +311,6 @@ module.controller("EditController", function($scope, $location, userService) {
     $scope.title = user.title;
     $scope.sex = user.sex;
     $scope.age = user.age;
-    $scope.passw1 = '';
-    $scope.passw2 = '';
 
     $scope.saveChange = function () {
         userService.editUser({id:user.id, fName:$scope.fName, lName:$scope.lName,
@@ -317,23 +318,16 @@ module.controller("EditController", function($scope, $location, userService) {
         $location.path('user');   
     }
 
-    $scope.$watch('passw1',function() {$scope.test();});
-    $scope.$watch('passw2',function() {$scope.test();});
     $scope.$watch('fName', function() {$scope.test();});
     $scope.$watch('lName', function() {$scope.test();});
     $scope.$watch('title', function() {$scope.test();});
     $scope.$watch('age', function() {$scope.test();});
     $scope.$watch('sex', function() {$scope.test();});
 
-    $scope.test = function() {
-      if ($scope.passw1 !== $scope.passw2) {
-        $scope.error = true;
-        } else {
-        $scope.error = false;
-      }
+    $scope.test = function() {  
+      $scope.error = false;   
       $scope.incomplete = false;
-      if (!$scope.fName.length || !$scope.lName.length ||
-      !$scope.passw1.length || !$scope.passw2.length || 
+      if (!$scope.fName.length || !$scope.lName.length || 
       !$scope.title.length || $scope.age === null || !$scope.sex.length) {
          $scope.incomplete = true;
       }
@@ -346,8 +340,6 @@ module.controller("CreateController", function($scope, $location, userService) {
     $scope.title = '';
     $scope.sex = '';
     $scope.age = null;
-    $scope.passw1 = '';
-    $scope.passw2 = '';
 
     $scope.saveChange = function() {
         userService.createUser({fName:$scope.fName, lName:$scope.lName,
@@ -355,8 +347,6 @@ module.controller("CreateController", function($scope, $location, userService) {
         $location.path('user');
     };
 
-    $scope.$watch('passw1',function() {$scope.test();});
-    $scope.$watch('passw2',function() {$scope.test();});
     $scope.$watch('fName', function() {$scope.test();});
     $scope.$watch('lName', function() {$scope.test();});
     $scope.$watch('title', function() {$scope.test();});
@@ -364,15 +354,10 @@ module.controller("CreateController", function($scope, $location, userService) {
     $scope.$watch('sex', function() {$scope.test();});
 
     $scope.test = function() {
-      if ($scope.passw1 !== $scope.passw2) {
-        $scope.error = true;
-        } else {
-        $scope.error = false;
-      }
+      $scope.error = false;
       $scope.incomplete = false;
       if (!$scope.fName.length ||
       !$scope.lName.length ||
-      !$scope.passw1.length || !$scope.passw2.length || 
       !$scope.title.length || $scope.age === null || !$scope.sex.length) {
          $scope.incomplete = true;
       }

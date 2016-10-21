@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title>Peter Wu</title>
+
+    <!-- Angular JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-route.min.js"></script>
+    <script type="text/javascript" src="http://code.angularjs.org/1.4.1/angular-animate.js"></script>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/timeline.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+
+
+  <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+        width: 70%;
+        margin: auto;
+    }
+    </style>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="assets/js/modernizr.js"></script>
+  </head>
+
+<body ng-app="myApp" ng-controller="UserController">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Peter Wu</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li class="dropdown">
+              <a href="x" class="dropdown-toggle" data-toggle="dropdown">INTERESTS<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="sport.html">SPORT</a></li>
+                <li><a href="#/music/">MUSIC</a></li>
+                <li><a href="#/travel/">TRAVEL</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+   
+    <div id="white">
+      <div class="w3-container">
+        <h3>
+          Users
+          <input style='float:right; height:25px; font-size:15px' type='text' placeholder="Search.." ng-model="query"></input>
+          <hr>
+        </h3>
+
+        <table class="w3-table w3-bordered w3-striped">
+          <tr>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>
+              <a href='' ng-click='sort("id")' ng-style='{"color": orderBy === "id"? "green":"black"}' style='text-decoration:none'>ID</a>
+              <span ng-show="orderBy === 'id' && !reverse">&#8595;</span>
+              <span ng-show="orderBy === 'id' && reverse" >&#8593;</span>
+            </th>
+            <th>
+              <a href='' ng-click='sort("fName")' ng-style='{"color": orderBy === "fName"? "green":"black"}' style='text-decoration:none'>First Name</a>
+              <span ng-show="orderBy === 'fName' && !reverse">&#8595;</span>
+              <span ng-show="orderBy === 'fName' && reverse" >&#8593;</span>
+            </th>
+            <th>
+              <a href='' ng-click='sort("lName")' ng-style='{"color": orderBy === "lName"? "green":"black"}' style='text-decoration:none'>Last Name</a>
+              <span ng-show="orderBy === 'lName' && !reverse">&#8595;</span>
+              <span ng-show="orderBy === 'lName' && reverse" >&#8593;</span>
+            </th>
+            <th>
+              <a href='' ng-click='sort("title")' ng-style='{"color": orderBy === "title"? "green":"black"}' style='text-decoration:none'>Title</a>
+              <span ng-show="orderBy === 'title' && !reverse">&#8595;</span>
+              <span ng-show="orderBy === 'title' && reverse" >&#8593;</span>
+            </th>
+            <th>
+              <a href='' ng-click='sort("sex")' ng-style='{"color": orderBy === "sex"? "green":"black"}' style='text-decoration:none'>Sex</a>
+              <span ng-show="orderBy === 'sex' && !reverse">&#8595;</span>
+              <span ng-show="orderBy === 'sex' && reverse" >&#8593;</span>
+            </th>
+            <th>
+              <a href='' ng-click='sort("age")' ng-style='{"color": orderBy === "age"? "green":"black"}' style='text-decoration:none'>Age</a>
+              <span ng-show="orderBy === 'age' && !reverse">&#8595;</span>
+              <span ng-show="orderBy === 'age' && reverse" >&#8593;</span>
+            </th>
+          </tr>
+          <tr ng-repeat="user in users | limitTo : numPerPage : (currPage-1)*numPerPage | filter:query">
+            <td>
+              <a href='edit.html' class="w3-btn w3-ripple" ng-click="editUser(user.id)">&#9998; Edit</a>
+            </td>
+            <td>
+              <button class="w3-btn w3-red w3-text-shadow" ng-click="delete(user.id)">&#10007; Delete</button>
+            </td>
+            <td>{{ user.id }}</td>
+            <td>{{ user.fName }}</td>
+            <td>{{ user.lName }}</td>
+            <td>{{ user.title }}</td>
+            <td>{{ user.sex }}</td>
+            <td>{{ user.age }}</td>
+          </tr>
+        </table>
+        <br>
+        <div style='text-align: center'>
+          <a href='' style='text-decoration:none; color:blue' ng-click="getPage(currPage-1)" ng-show="currPage > 1 && pages.length > 1">Prev</a>
+          <a href='' ng-repeat="page in pages" ng-click='getPage(page)' ng-style='{"color":page === currPage? "red":"blue"}' style='text-decoration:none'>{{page + ' '}}</a>
+          <a href='' style='text-decoration:none; color:blue' ng-click="getPage(currPage+1)" ng-show="currPage !== pages.length && pages.length > 1">Next</a>
+        </div>
+        <br>
+
+        <a href='create.html' class="w3-btn w3-green w3-ripple">&#9998;Create New User</a>
+        <a href='projects.html' class="w3-btn w3-black w3-ripple" style="float:right">Back</a>
+      </div>
+    </div>
+
+
+
+  <!-- *****************************************************************************************************************
+   FOOTER
+   ***************************************************************************************************************** -->
+   <div id="footerwrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <h4>About</h4>
+          <div class="hline-w"></div>
+          <p>I am a highly motivated, hard-working and quick-learning graduate student in Electrical and Computer Engineering with ability to articulate complex subject matter.</p>
+        </div>
+        <div class="col-lg-4">
+          <h4>Social Links</h4>
+          <div class="hline-w"></div>
+          <p>
+            <a href="https://www.facebook.com/profile.php?id=100000125777426"><i class="fa fa-facebook"></i></a>
+            <a href="http://www.linkedin.com/pub/jie-ping-wu/a7/752/b51/en"><i class="fa fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/peterwu77/"><i class="fa fa-instagram"></i></a>
+            <a href="https://github.com/melo5566?tab=overview&from=2016-08-01&to=2016-08-31&utf8=%E2%9C%93"><i class="fa fa-github"></i></a>
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <h4>Contact Me</h4>
+          <div class="hline-w"></div>
+          <p>
+            Phone: 734-639-0001<br/>
+            Email: jieping@umich.edu<br/>
+          </p>
+        </div>
+      
+      </div>
+    </div>
+   </div>
+   
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/retina-1.1.0.js"></script>
+    <script src="assets/js/jquery.hoverdir.js"></script>
+    <script src="assets/js/jquery.hoverex.min.js"></script>
+    <script src="assets/js/jquery.prettyPhoto.js"></script>
+    <script src="assets/js/jquery.isotope.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <script src="website.js">
+
+Portfolio
+(function($) {
+  "use strict";
+  var $container = $('.portfolio'),
+    $items = $container.find('.portfolio-item'),
+    portfolioLayout = 'fitRows';
+    
+    if( $container.hasClass('portfolio-centered') ) {
+      portfolioLayout = 'masonry';
+    }
+        
+    $container.isotope({
+      filter: '*',
+      animationEngine: 'best-available',
+      layoutMode: portfolioLayout,
+      animationOptions: {
+      duration: 750,
+      easing: 'linear',
+      queue: false
+    },
+    masonry: {
+    }
+    }, refreshWaypoints());
+    
+    function refreshWaypoints() {
+      setTimeout(function() {
+      }, 1000);   
+    }
+        
+    $('nav.portfolio-filter ul a').on('click', function() {
+        var selector = $(this).attr('data-filter');
+        $container.isotope({ filter: selector }, refreshWaypoints());
+        $('nav.portfolio-filter ul a').removeClass('active');
+        $(this).addClass('active');
+        return false;
+    });
+    
+    function getColumnNumber() { 
+      var winWidth = $(window).width(), 
+      columnNumber = 1;
+    
+      if (winWidth > 1200) {
+        columnNumber = 5;
+      } else if (winWidth > 950) {
+        columnNumber = 4;
+      } else if (winWidth > 600) {
+        columnNumber = 3;
+      } else if (winWidth > 400) {
+        columnNumber = 2;
+      } else if (winWidth > 250) {
+        columnNumber = 1;
+      }
+        return columnNumber;
+      }       
+      
+      function setColumns() {
+        var winWidth = $(window).width(), 
+        columnNumber = getColumnNumber(), 
+        itemWidth = Math.floor(winWidth / columnNumber);
+        
+        $container.find('.portfolio-item').each(function() { 
+          $(this).css( { 
+          width : itemWidth + 'px' 
+        });
+      });
+    }
+    
+    function setPortfolio() { 
+      setColumns();
+      $container.isotope('reLayout');
+    }
+      
+    $container.imagesLoaded(function () { 
+      setPortfolio();
+    });
+    
+    $(window).on('resize', function () { 
+    setPortfolio();          
+  });
+})(jQuery);
+</script>
+  </body>
+</html>

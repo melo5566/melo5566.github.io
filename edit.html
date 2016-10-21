@@ -28,7 +28,6 @@
 
 
 
-	<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   	<style>
   	.carousel-inner > .item > img,
@@ -38,19 +37,11 @@
   	}
   	</style>
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
     
     <script src="assets/js/modernizr.js"></script>
   </head>
 
-<body ng-app="myApp" ng-controller="ShowController">
+<body ng-app="myApp" ng-controller="EditController">
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
@@ -81,76 +72,35 @@
       </div>
     </div>
 	 
-	<!-- <div ng-view class="page-home"></div> -->
-	<div id="headerwrap">
-	    <div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<h1>Hi, I am Peter Wu</h1>
-					<h3>I am a passionate full stack software engineer.</h3>	
-				</div>
-			</div>
-	    </div>
-	</div>
 
-	<div id="service">
-		<div class="container">
-			<p style="text-align:center;"><img src="assets/img/me.jpg" class="img-circle" alt="Cinque Terre" style="max-width: 30%"></p>
-			<h4 style="text-align: center; margin:50px">I am interested in the full-time position of Software Engineer. As a second-year master student majoring in Computer Science and Engineering at the University of Michigan, my areas of interest are data analysis and backend database design. My related project experience has given me the skills to tackle challenges in software development. I am seeking for a job to bring fresh ideas and push technology forward.</h4>
+	<div id="white">
+		<div class="w3-container">
+			<h3>Edit:</h3>
+			<label>First Name:</label>
+			<input class="w3-input w3-border" type="text" ng-model="fName" placeholder="First Name">
+			<br>
+			<label>Last Name:</label>
+			<input class="w3-input w3-border" type="text" ng-model="lName" placeholder="Last Name">
+			<br>
+			<label>Title:</label>
+			<input class="w3-input w3-border" type="text" ng-model="title" placeholder="title">
+			<br>
+			<label>Age:</label>
+			<input class="w3-input w3-border" type="number" ng-model="age" placeholder="age">
+			<br>
+			<label>Sex:</label><br>
+			<input type="radio" ng-model="sex" value="Male">Male<br>
+			<input type="radio" ng-model="sex" value="Female">Female<br>
+			<br>
+			<a href="user.html" class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete" ng-click="saveChange()">&#10004; Save Changes</a>
 		</div>
 	</div>
-
-
-
-	 <div id="service">
-	 	<h1 style="text-align:center">My Skills</h1>
-	 	<ul id="skill">
-			<li><span class="bar python">85%</span><h3>Python</h3></li>
-			<li><span class="bar javascript">80%</span><h3>JavaScript</h3></li>
-			<li><span class="bar nodejs">75%</span><h3>NodeJS</h3></li>
-			<li><span class="bar angularjs">75%</span><h3>AngularJS</h3></li>
-			<li><span class="bar sql">80%</span><h3>SQL</h3></li>
-			<li><span class="bar objectivec">80%</span><h3>Objective-C</h3></li>
-			<li><span class="bar html-css">80%</span><h3>HTML-CSS</h3></li>
-			<li><span class="bar cpp">70%</span><h3>C++</h3></li>
-		</ul>
-	 </div>
-	 
 
 
 	<!-- *****************************************************************************************************************
 	 FOOTER
 	 ***************************************************************************************************************** -->
-	 <div id="footerwrap">
-	 	<div class="container">
-		 	<div class="row">
-		 		<div class="col-lg-4">
-		 			<h4>About</h4>
-		 			<div class="hline-w"></div>
-		 			<p>I am a highly motivated, hard-working and quick-learning graduate student in Electrical and Computer Engineering with ability to articulate complex subject matter.</p>
-		 		</div>
-		 		<div class="col-lg-4">
-		 			<h4>Social Links</h4>
-		 			<div class="hline-w"></div>
-		 			<p>
-		 				<a href="https://www.facebook.com/profile.php?id=100000125777426"><i class="fa fa-facebook"></i></a>
-		 				<a href="http://www.linkedin.com/pub/jie-ping-wu/a7/752/b51/en"><i class="fa fa-linkedin"></i></a>
-		 				<a href="https://www.instagram.com/peterwu77/"><i class="fa fa-instagram"></i></a>
-		 				<a href="https://github.com/melo5566?tab=overview&from=2016-08-01&to=2016-08-31&utf8=%E2%9C%93"><i class="fa fa-github"></i></a>
-		 			</p>
-		 		</div>
-		 		<div class="col-lg-4">
-		 			<h4>Contact Me</h4>
-		 			<div class="hline-w"></div>
-		 			<p>
-		 				Phone: 734-639-0001<br/>
-		 				Email: jieping@umich.edu<br/>
-		 			</p>
-		 		</div>
-		 	
-		 	</div>
-	 	</div>
-	 </div>
+	 
 	 
     <!-- Bootstrap core JavaScript
     ================================================== -->

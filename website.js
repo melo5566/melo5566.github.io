@@ -1,53 +1,4 @@
-var module = angular.module("myApp", ['ngRoute', 'ngAnimate']);
-
-module.config(['$routeProvider',
-	function($routeProvider) {
-		$routeProvider.
-			when('/home/', {
-				templateUrl: 'home.html',
-				controller: 'ShowController'
-			}).
-			when('/about/', {
-				templateUrl: 'timeline.html',
-				controller: 'ShowController'
-			}).
-			when('/sport/', {
-				templateUrl: 'sport.html',
-				controller: 'ShowController'
-			}).
-			when('/education/', {
-				templateUrl: 'timeline.html',
-				controller: 'ShowController'
-			}).
-			when('/projects/', {
-				templateUrl: 'projects.html',
-				controller: 'ShowController'
-			}).
-			when('/music/', {
-				templateUrl: 'blog.html',
-				controller: 'ShowController'
-			}).
-			when('/pchat/', {
-				templateUrl: 'pchat.html',
-				controller: 'ShowController'
-			}).
-			when('/create/', {
-                templateUrl: 'hw7-create.html',
-                controller: 'CreateController'
-            }).
-            when('/edit/', {
-                templateUrl: 'hw7-edit.html',
-                controller: 'EditController'
-            }).
-            when('/user/', {
-                templateUrl: 'hw7-show.html',
-                controller: 'UserController'
-            }).
-			otherwise({
-				redirectTo: '/home/'
-			});
-	}]);
-
+var module = angular.module("myApp", ['ngAnimate']);
 
 module.service('userService', function() {
     var users = [
@@ -73,7 +24,7 @@ module.service('userService', function() {
 
     return {
         getUsers: function() { return users; },
-        createUser: function(user) { 
+        createUser: function(user) {
             userId ++;
             user.id = userId;
             users.splice(0, 0, user);
@@ -265,15 +216,10 @@ module.controller("UserController", function($scope, $location, userService) {
     for (var i = 0; i < Math.ceil($scope.users.length/$scope.numPerPage); i++)
         $scope.pages[i] = i+1;
 
-    $scope.back = function() {
-        $location.path("projects");
-    };
     $scope.editUser = function(id) {
         userService.getEditId(id);
-        $location.path('edit');
     };
     $scope.createUser = function() {
-        $location.path('create');
         $scope.currPage = 1;
     }
     $scope.delete = function(id) {
@@ -314,8 +260,7 @@ module.controller("EditController", function($scope, $location, userService) {
 
     $scope.saveChange = function () {
         userService.editUser({id:user.id, fName:$scope.fName, lName:$scope.lName,
-         title:$scope.title, age:$scope.age, sex:$scope.sex});
-        $location.path('user');   
+         title:$scope.title, age:$scope.age, sex:$scope.sex});   
     }
 
     $scope.$watch('fName', function() {$scope.test();});
@@ -344,7 +289,6 @@ module.controller("CreateController", function($scope, $location, userService) {
     $scope.saveChange = function() {
         userService.createUser({fName:$scope.fName, lName:$scope.lName,
          title:$scope.title, age:$scope.age, sex:$scope.sex});
-        $location.path('user');
     };
 
     $scope.$watch('fName', function() {$scope.test();});

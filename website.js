@@ -13,7 +13,6 @@ module.service('userService', function() {
     ];
 
     var userId = users.length;
-    var editId = -1;
 
     var getIndex = function(id) {
       for (var i = 0; i < users.length; i++) {
@@ -33,13 +32,7 @@ module.service('userService', function() {
             users.splice(getIndex(id), 1);
         },
         editUser: function(user) {
-            users[getIndex(editId)] = user;
-        },
-        getEditId: function(id) {
-            editId = id;
-        },
-        getEditUser: function() {
-            return users[getIndex(editId)];
+            users[getIndex(user.id)] = user;
         }
     };
 })
@@ -205,6 +198,7 @@ module.controller("ShowController", function($scope, $location, anchorSmoothScro
 })
 
 module.controller("UserController", function($scope, $location, userService) {
+    $scope.state = 'show';
     $scope.orderBy = '';
     $scope.users = userService.getUsers();
     $scope.query = '';
@@ -216,10 +210,22 @@ module.controller("UserController", function($scope, $location, userService) {
     for (var i = 0; i < Math.ceil($scope.users.length/$scope.numPerPage); i++)
         $scope.pages[i] = i+1;
 
-    $scope.editUser = function(id) {
-        userService.getEditId(id);
+    $scope.editUser = function(user) {
+        $scope.state = 'edit';
+        $scope.id = user.id;
+        $scope.fName = user.fName;
+        $scope.lName = user.lName;
+        $scope.title = user.title;
+        $scope.sex = user.sex;
+        $scope.age = user.age;
     };
     $scope.createUser = function() {
+        $scope.fName = '';
+        $scope.lName = '';
+        $scope.title = '';
+        $scope.sex = '';
+        $scope.age = null;
+        $scope.state = 'create';
         $scope.currPage = 1;
     }
     $scope.delete = function(id) {
@@ -248,20 +254,18 @@ module.controller("UserController", function($scope, $location, userService) {
     $scope.getPage = function (page) {
         $scope.currPage = page;
     };
-})
 
-module.controller("EditController", function($scope, $location, userService) {
-    var user = userService.getEditUser();
-    $scope.fName = user.fName;
-    $scope.lName = user.lName;
-    $scope.title = user.title;
-    $scope.sex = user.sex;
-    $scope.age = user.age;
+    $scope.EditSaveChange = function() {
+        userService.editUser({id:$scope.id, fName:$scope.fName, lName:$scope.lName,
+         title:$scope.title, age:$scope.age, sex:$scope.sex});
+        $scope.state = 'show';
+    };
 
-    $scope.saveChange = function () {
-        userService.editUser({id:user.id, fName:$scope.fName, lName:$scope.lName,
-         title:$scope.title, age:$scope.age, sex:$scope.sex});   
-    }
+    $scope.CreateSaveChange = function() {
+        userService.createUser({fName:$scope.fName, lName:$scope.lName,
+         title:$scope.title, age:$scope.age, sex:$scope.sex});
+        $scope.state = 'show';
+    };
 
     $scope.$watch('fName', function() {$scope.test();});
     $scope.$watch('lName', function() {$scope.test();});
@@ -273,35 +277,6 @@ module.controller("EditController", function($scope, $location, userService) {
       $scope.error = false;   
       $scope.incomplete = false;
       if (!$scope.fName.length || !$scope.lName.length || 
-      !$scope.title.length || $scope.age === null || !$scope.sex.length) {
-         $scope.incomplete = true;
-      }
-    };
-})
-
-module.controller("CreateController", function($scope, $location, userService) {
-    $scope.fName = '';
-    $scope.lName = '';
-    $scope.title = '';
-    $scope.sex = '';
-    $scope.age = null;
-
-    $scope.saveChange = function() {
-        userService.createUser({fName:$scope.fName, lName:$scope.lName,
-         title:$scope.title, age:$scope.age, sex:$scope.sex});
-    };
-
-    $scope.$watch('fName', function() {$scope.test();});
-    $scope.$watch('lName', function() {$scope.test();});
-    $scope.$watch('title', function() {$scope.test();});
-    $scope.$watch('age', function() {$scope.test();});
-    $scope.$watch('sex', function() {$scope.test();});
-
-    $scope.test = function() {
-      $scope.error = false;
-      $scope.incomplete = false;
-      if (!$scope.fName.length ||
-      !$scope.lName.length ||
       !$scope.title.length || $scope.age === null || !$scope.sex.length) {
          $scope.incomplete = true;
       }

@@ -73,7 +73,7 @@
       </div>
     </div>
    
-    <div id="white">
+    <div id="white" ng-show="state == 'show' ">
       <div class="w3-container">
         <h3>
           Users
@@ -118,7 +118,7 @@
           </tr>
           <tr ng-repeat="user in users | limitTo : numPerPage : (currPage-1)*numPerPage | filter:query">
             <td>
-              <a href='edit.html' class="w3-btn w3-ripple" ng-click="editUser(user.id)">&#9998; Edit</a>
+              <button class="w3-btn w3-ripple" ng-click="editUser(user)">&#9998; Edit</a>
             </td>
             <td>
               <button class="w3-btn w3-red w3-text-shadow" ng-click="delete(user.id)">&#10007; Delete</button>
@@ -139,12 +139,56 @@
         </div>
         <br>
 
-        <a href='create.html' class="w3-btn w3-green w3-ripple">&#9998;Create New User</a>
+        <button class="w3-btn w3-green w3-ripple" ng-click="createUser()">&#9998;Create New User</button>
         <a href='projects.html' class="w3-btn w3-black w3-ripple" style="float:right">Back</a>
       </div>
     </div>
 
+    <div id="white" ng-show="state == 'create' ">
+      <div class="w3-container">
+        <h3>Create New User:</h3>
+        <label>First Name:</label>
+        <input class="w3-input w3-border" type="text" ng-model="fName" placeholder="First Name">
+        <br>
+        <label>Last Name:</label>
+        <input class="w3-input w3-border" type="text" ng-model="lName" placeholder="Last Name">
+        <br>
+        <label>Title:</label>
+        <input class="w3-input w3-border" type="text" ng-model="title" placeholder="title">
+        <br>
+        <label>Age:</label>
+        <input class="w3-input w3-border" type="number" ng-model="age" placeholder="age">
+        <br>
+        <label>Sex:</label><br>
+        <input type="radio" ng-model="sex" value="Male">Male<br>
+        <input type="radio" ng-model="sex" value="Female">Female<br>
+        <br>
+        <button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete" ng-click="CreateSaveChange()">&#10004; Save Changes</button>
+      </div>
+    </div>
 
+    <div id="white" ng-show="state == 'edit' ">
+      <div class="w3-container">
+        <h3>Edit:</h3>
+        <label>First Name:</label>
+        <input class="w3-input w3-border" type="text" ng-model="fName" placeholder="First Name">
+        <br>
+        <label>Last Name:</label>
+        <input class="w3-input w3-border" type="text" ng-model="lName" placeholder="Last Name">
+        <br>
+        <label>Title:</label>
+        <input class="w3-input w3-border" type="text" ng-model="title" placeholder="title">
+        <br>
+        <label>Age:</label>
+        <input class="w3-input w3-border" type="number" ng-model="age" placeholder="age">
+        <br>
+        <label>Sex:</label><br>
+        <input type="radio" ng-model="sex" value="Male">Male<br>
+        <input type="radio" ng-model="sex" value="Female">Female<br>
+        <br>
+        <button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete" ng-click="EditSaveChange()">&#10004; Save Changes</button>
+      </div>
+    </div>
 
   <!-- *****************************************************************************************************************
    FOOTER

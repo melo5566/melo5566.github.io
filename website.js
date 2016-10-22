@@ -267,6 +267,14 @@ module.controller("UserController", function($scope, $location, userService) {
         $scope.state = 'show';
     };
 
+    $scope.createBack = function() {
+        $scope.state = 'show';
+    };
+
+    $scope.editBack = function() {
+        $scope.state = 'show';
+    };
+
     $scope.$watch('fName', function() {$scope.test();});
     $scope.$watch('lName', function() {$scope.test();});
     $scope.$watch('title', function() {$scope.test();});

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Peter Wu</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/full-slider.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body ng-app="myApp" ng-controller="ShowController">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Peter Wu</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li class="dropdown">
+              <a href="x" class="dropdown-toggle" data-toggle="dropdown">INTERESTS<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="sport.html">SPORT</a></li>
+                <li><a href="#/music/">MUSIC</a></li>
+                <li><a href="#/travel/">TRAVEL</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <!-- Full Page Image Background Carousel Header -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+            <li data-target="#myCarousel" data-slide-to="5"></li>
+            <li data-target="#myCarousel" data-slide-to="6"></li>
+            <li data-target="#myCarousel" data-slide-to="7"></li>
+            <li data-target="#myCarousel" data-slide-to="8"></li>
+        </ol>
+
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('assets/img/travel/capetown.png');"></div>
+                <div class="carousel-caption">
+                    <h2>Cape Town, South Africa</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('assets/img/travel/chicago.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Chicago, US</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('assets/img/travel/SA1.png'); height:130%"></div>
+                <div class="carousel-caption">
+                    <h2>South Africa</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('assets/img/travel/SA.png');"></div>
+                <div class="carousel-caption">
+                    <h2>Hermanus, South Africa</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('assets/img/travel/turkey.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Istanbul, Turkey</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('assets/img/travel/hualien.png');"></div>
+                <div class="carousel-caption">
+                    <h2>Hualien, Taiwan</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('assets/img/travel/denver.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Denver, US</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('assets/img/travel/texas.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Texas, US</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('assets/img/travel/ca.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>California, US</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </header>
+
+
+    <!-- *****************************************************************************************************************
+   FOOTER
+   ***************************************************************************************************************** -->
+   <div id="footerwrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <h4>About</h4>
+          <div class="hline-w"></div>
+          <p>I am a highly motivated, hard-working and quick-learning graduate student in Electrical and Computer Engineering with ability to articulate complex subject matter.</p>
+        </div>
+        <div class="col-lg-4">
+          <h4>Social Links</h4>
+          <div class="hline-w"></div>
+          <p>
+            <a href="https://www.facebook.com/profile.php?id=100000125777426"><i class="fa fa-facebook"></i></a>
+            <a href="http://www.linkedin.com/pub/jie-ping-wu/a7/752/b51/en"><i class="fa fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/peterwu77/"><i class="fa fa-instagram"></i></a>
+            <a href="https://github.com/melo5566?tab=overview&from=2016-08-01&to=2016-08-31&utf8=%E2%9C%93"><i class="fa fa-github"></i></a>
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <h4>Contact Me</h4>
+          <div class="hline-w"></div>
+          <p>
+            Phone: 734-639-0001<br/>
+            Email: jieping@umich.edu<br/>
+          </p>
+        </div>
+      
+      </div>
+    </div>
+   </div>
+
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+</body>
+
+</html>

@@ -100,26 +100,26 @@ module.controller("ShowController", function($scope, $location, anchorSmoothScro
 
 	var sports = ['ice', 'baseball', 'judo', 'basketball', 'ski', 'bowling'];
 	window.onscroll = function () {
-	    if (window.pageYOffset < 500) {
+	    if (window.pageYOffset < 1000) {
 	    	document.getElementById(sports[0]+1).className = "active";
 	    	document.getElementById(sports[1]+1).className = "";	
-	    } else if (500 < window.pageYOffset && window.pageYOffset < 1200) {
+	    } else if (1000 < window.pageYOffset && window.pageYOffset < 1700) {
 	    	document.getElementById(sports[1]+1).className = "active";
 	    	document.getElementById(sports[0]+1).className = "";
 	    	document.getElementById(sports[2]+1).className = "";		
-	    } else if (1200 < window.pageYOffset && window.pageYOffset < 1900) {
+	    } else if (1800 < window.pageYOffset && window.pageYOffset < 2500) {
 	    	document.getElementById(sports[2]+1).className = "active";
 	    	document.getElementById(sports[1]+1).className = "";
 	    	document.getElementById(sports[3]+1).className = "";		
-	    } else if (1900 < window.pageYOffset && window.pageYOffset < 2600) {
+	    } else if (2500 < window.pageYOffset && window.pageYOffset < 3100) {
 	    	document.getElementById(sports[3]+1).className = "active";
 	    	document.getElementById(sports[2]+1).className = "";
 	    	document.getElementById(sports[4]+1).className = "";		
-	    } else if (2600 < window.pageYOffset && window.pageYOffset < 3500) {
+	    } else if (3100 < window.pageYOffset && window.pageYOffset < 4000) {
 	    	document.getElementById(sports[4]+1).className = "active";
 	    	document.getElementById(sports[3]+1).className = "";
 	    	document.getElementById(sports[5]+1).className = "";		
-	    } else if (window.pageYOffset > 3500) {
+	    } else if (window.pageYOffset > 4000) {
 	    	document.getElementById(sports[5]+1).className = "active";
 	    	document.getElementById(sports[4]+1).className = "";
 	    }

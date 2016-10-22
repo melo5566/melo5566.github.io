@@ -9,7 +9,8 @@ module.service('userService', function() {
     {id:5, fName:'John', lName:"Doe", title:"Engineer", sex:'Male', age:25 },
     {id:6, fName:'Peter',lName:"Pan", title:"Manager", sex:'Female', age:23 },
     {id:7, fName:'Kobe',lName:"Bryant", title:"Player", sex:'Male', age:38 },
-    {id:8, fName:'Jay',lName:"Chou", title:"Singer", sex:'Male', age:36 }
+    {id:8, fName:'Jay',lName:"Chou", title:"Singer", sex:'Male', age:36 },
+    {id:9, fName:'Peter',lName:"Wu", title:"Software Engineer", sex:'Male', age:25 }
     ];
 
     var userId = users.length;
@@ -202,7 +203,7 @@ module.controller("UserController", function($scope, $location, userService) {
     $scope.orderBy = '';
     $scope.users = userService.getUsers();
     $scope.query = '';
-    $scope.numPerPage = 5;
+    $scope.numPerPage = 6;
     $scope.currPage = 1;
     $scope.pages = [];
     $scope.reverse = false;

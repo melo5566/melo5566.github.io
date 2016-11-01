@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cart</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="dist/ngCart.js"></script>
+    <script src="cart.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div class="container">
+
+        <div class="row">
+          
+            <div class="col-xs-offset-10 col-xs-4">
+                <h3><a href="checkout.html" class="glyphicon glyphicon-shopping-cart"></a></h3>
+                <ngcart-summary></ngcart-summary>
+            </div>
+        </div>
+        <hr/>
+
+        <div ng-repeat="i in nums">
+            <br>
+            <div class="row">
+                <div ng-repeat="product in products.slice(i*4, (i+1)*4)">
+                    <div class="col-xs-6 col-sm-3">
+                        <img style="width:250px; height:300px" ng-src={{product.img}}></img>
+                        <h4>{{product.name}}</h4>
+                        <h3 style="color:#216C2A">${{product.price}}</h3>
+                        <ngcart-addtocart id={{product.id}} name={{product.name}} price={{product.price}} quantity="1" quantity-max={{product.maxQuantity}}>Add to Cart</ngcart-addtocart>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+            
+
+        <div class="row" ng-show="false">
+            <div class="col-md-12">
+                
+            <h3>Checkout <span> (ngcart-checkout)</span></h3>
+                
+                
+                <div class="row">
+            <div class="col-xs-4">
+                <h4>service 'log'</h4>
+                <ngcart-checkout service="log">Checkout</ngcart-checkout>
+            </div>
+            <div class="col-xs-4">
+                <h4>service 'http'</h4>
+                <ngcart-checkout service="http" settings="httpSettings">Checkout </ngcart-checkout>
+            </div>
+            <div class="col-xs-4">
+                <h4>service 'paypal'</h4>
+                <ngcart-checkout service="paypal" settings="payPalSettings"></ngcart-checkout>
+            </div>
+        </div>
+                
+
+
+            </div>
+        </div>
+
+        </div>
+
+
+        <!--  TEMPALATES -->
+        <!--  TEMPALATES -->
+        <!--  TEMPALATES -->
+
+        <script type="text/ng-template" id="template/ngCart/summary.html">
+            <div class="row">
+                <div class="col-md-6">{{ ngCart.getTotalItems() }}
+                    <ng-pluralize count="ngCart.getTotalItems()" when="{1: 'item', 'other':'items'}"></ng-pluralize>
+                    <br />{{ ngCart.totalCost() | currency }}
+                </div>
+            </div>
+        </script>
+
+        <script type="text/ng-template" id="template/ngCart/addtocart.html">
+            <div ng-hide="attrs.id">
+                <a class="btn btn-lg btn-primary" ng-disabled="true" ng-transclude></a>
+
+            </div>
+            <div ng-show="attrs.id">
+                <div>
+                    <span ng-show="quantityMax">
+                        <select name="quantity" id="quantity" ng-model="q"
+                                ng-options=" v for v in qtyOpt"></select>
+                    </span>
+                    <a class="btn btn-sm btn-primary"
+                       ng-click="ngCart.addItem(id, name, price, q, data)"
+                       ng-transclude></a>
+                </div>
+                <mark  ng-show="inCart()">
+                    This item is in your cart. <a ng-click="ngCart.removeItemById(id)" style="cursor: pointer;">Remove</a>
+                </mark>
+            </div>
+        </script>
+
+        
+
+</body>
+</html>
+
+
+
+
+
+
+

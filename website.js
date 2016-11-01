@@ -1,4 +1,4 @@
-var module = angular.module("myApp", ['ngCart']);
+var module = angular.module("myApp", []);
 
 module.service('userService', function() {
     var users = [

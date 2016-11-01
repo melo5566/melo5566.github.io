@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp',['ngCart']);
+var myApp = angular.module('cartApp',['ngCart']);
 
 var products = [{id:'0', name:'htc 10', price:550, maxQuantity:6, img:'assets/img/projects/Cart/htc-10.png'}, 
 {id:'1', name:'Asus ZF3', price:330, maxQuantity:10, img:'assets/img/projects/Cart/zf3.jpg'},

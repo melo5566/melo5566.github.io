@@ -1,15 +1,17 @@
 var myApp = angular.module('cartApp',['ngCart']);
 
-var products = [{id:'0', name:'htc 10', price:550, maxQuantity:6, img:'assets/img/projects/Cart/htc-10.png'}, 
-{id:'1', name:'Asus ZF3', price:330, maxQuantity:10, img:'assets/img/projects/Cart/zf3.jpg'},
-{id:'2', name:'HTC M8', price:400, maxQuantity:10, img:'assets/img/projects/Cart/m8.jpg'}, 
-{id:'3', name:'HTC A9', price:300, maxQuantity:8, img:'assets/img/projects/Cart/a9.png'},
-{id:'4', name:'Google Pixel', price:700, maxQuantity:8, img:'assets/img/projects/Cart/pixel.png'},
-{id:'5', name:'Iphone 7', price:800, maxQuantity:8, img:'assets/img/projects/Cart/i7.jpg'},
-{id:'6', name:'Xperia xz', price:300, maxQuantity:20, img:'assets/img/projects/Cart/xz.jpg'}]
+var products = [{id:'0', singer:'Shawn Mendes',  name:'Illuminate', year:'2016', price:30, maxQuantity:6, img:'assets/img/projects/Cart/0.jpg'}, 
+{id:'1', singer:'Charlie Puth', name:'Nine Track Mind', year:'2016', price:40, maxQuantity:10, img:'assets/img/projects/Cart/1.jpg'},
+{id:'2', singer:'Justin Bieber', name:'Purpose', year:'2015', price:20, maxQuantity:10, img:'assets/img/projects/Cart/2.jpg'}, 
+{id:'3', singer:'The Chainsmokers', name:'Closer', year:'2016', price:35, maxQuantity:8, img:'assets/img/projects/Cart/3.jpg'},
+{id:'4', singer:'Alan Walker', name:'Faded', price:70, year:'2015', maxQuantity:8, img:'assets/img/projects/Cart/4.jpg'},
+{id:'5', singer:'Maroon 5', name:'V', year:'2014', price:30, maxQuantity:8, img:'assets/img/projects/Cart/5.jpg'},
+{id:'6', singer:'Lady Gaga', name:'Joanne', year:'2016', price:40, maxQuantity:20, img:'assets/img/projects/Cart/6.jpg'},
+{id:'7', singer:'DJ Snake', name:'Encore', year:'2016', price:25, maxQuantity:20, img:'assets/img/projects/Cart/7.jpg'}]
 
 
 myApp.controller("myCtrl", function($scope, $http, ngCart) {
+	$scope.layout = 'Grid';
 	$scope.products = products;
 	$scope.nums = [];
 	for (var i = 0; i <= Math.floor(products.length/4); i++) {
@@ -17,4 +19,11 @@ myApp.controller("myCtrl", function($scope, $http, ngCart) {
 	}
     ngCart.setTaxRate(7.5);
     ngCart.setShipping(2.99);
+    $scope.changeLayout = function() {
+    	if ($scope.layout === 'Grid')
+    		$scope.layout = 'List';
+    	else
+    		$scope.layout = 'Grid';
+    }
+
 });

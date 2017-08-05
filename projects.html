@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title>Peter Wu</title>
+
+    <!-- Angular JS -->
+    <script src="angular.min.js"></script>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/timeline.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+	<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  	<style>
+  	.carousel-inner > .item > img,
+  	.carousel-inner > .item > a > img {
+      	width: 70%;
+      	margin: auto;
+  	}
+  	</style>
+
+    
+    <script src="assets/js/modernizr.js"></script>
+  </head>
+
+<body ng-app="myApp" ng-controller="ShowController">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- <a class="navbar-brand" href="index.html">Peter Wu</a> -->
+          <a class="navbar-brand" href="index.html">Peter Wu</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li class="dropdown">
+              <a href="x" class="dropdown-toggle" data-toggle="dropdown">INTERESTS<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="sport.html">SPORT</a></li>
+                <li><a href="#/music/">MUSIC</a></li>
+                <li><a href="travel.html">TRAVEL</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+	 
+	<!-- <div ng-view class="page-home"></div> -->
+	<div id="service">
+		<div class="container">
+			<div class="row centered">
+ 				<div class="col-md-6">
+ 					<img src="assets/img/projects/Cart/cart.png"></img>
+ 				</div>
+ 				<div class="col-md-6">
+ 					<h1 style="padding-top:85px">Shopping Cart</h1>
+ 					<p style="font-size:18px">“PChat” is a location-based social network that is sort of a blend of Yik-Yak and Tinychat. The first feature of the application is the ability creates their own chatrooms that are only accessible by people with the app in a certain radius. The second feature is a forum where users can post any news or content in three categories: Sports, Academics, and Games.</p>
+ 					<p><br/><a href="cart.html" class="btn btn-theme" ng-click="scrollToTop()">Try It</a></p>
+ 				</div>
+	 		</div>
+	 		<p>
+	 		<div class="hline" style="margin-bottom:20px"></div>
+			<div class="row centered">
+ 				<div class="col-md-6">
+ 					<h1>User Management System</h1>
+ 					<p style="font-size:18px">“PChat” is a location-based social network that is sort of a blend of Yik-Yak and Tinychat. The first feature of the application is the ability creates their own chatrooms that are only accessible by people with the app in a certain radius. The second feature is a forum where users can post any news or content in three categories: Sports, Academics, and Games.</p>
+ 					<p><br/><a href="user.html" class="btn btn-theme">Try It</a></p>
+ 				</div>
+ 				<div class="col-md-6">
+ 					<img src="assets/img/projects/User/pro.png"></img>
+ 				</div>
+	 		</div>
+	 		<p>
+	 		<div class="hline" style="padding-top:20px"></div>
+ 			<div class="row centered">
+ 				<div class="col-md-6">
+ 					<img src="assets/img/projects/pchat/placeit.png"></img>
+ 				</div>
+ 				<div class="col-md-6">
+ 					<h1 style="padding-top:20px">PChat Social Network</h1>
+ 					<p style="font-size:18px">“PChat” is a location-based social network that is sort of a blend of Yik-Yak and Tinychat. The first feature of the application is the ability creates their own chatrooms that are only accessible by people with the app in a certain radius. The second feature is a forum where users can post any news or content in three categories: Sports, Academics, and Games.</p>
+ 					<p><br/><a href="pchat.html" class="btn btn-theme" ng-click="scrollToTop()">More Info</a></p>
+ 				</div>
+	 		</div>
+	 		<p>
+	 		<div class="hline"></div>
+	 		<div class="row centered">
+ 				<div class="col-md-6">
+ 					<h1 style="padding-top:50px">Red String</h1>
+ 					<p style="font-size:18px">RedString is a platform for EVERYONE to play matchmaker - either match themselves or connect their single friends together.</p>
+ 					<p><br/><a href="https://redstringmatch.com/" class="btn btn-theme">More Info</a></p>
+ 					
+ 				</div>
+ 				<div class="col-md-6">
+ 					<img src="assets/img/projects/Redstring/imac.png"></img>
+ 				</div>
+	 		</div>
+	 		<div class="hline"></div>
+	 		<div class="row centered">
+ 				<div class="col-md-6">
+ 					<img src="assets/img/projects/Facenews/htc.png"></img>
+ 				</div>
+ 				<div class="col-md-6">
+ 					<h1 style="padding-top:50px">Face News</h1>
+ 					<p style="font-size:18px">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+ 					<p><br/><a href="http://app-1037744830.appstor.io/" class="btn btn-theme">More Info</a></p>
+ 				</div>
+	 		</div>
+	 		<div class="hline"></div>
+	 		<div class="row centered">
+ 				<div class="col-md-6" style="padding-top:15px">
+ 					<h1>Calculator</h1>
+ 					<p style="font-size:18px">“PChat” is a location-based social network that is sort of a blend of Yik-Yak and Tinychat. The first feature of the application is the ability creates their own chatrooms that are only accessible by people with the app in a certain radius. The second feature is a forum where users can post any news or content in three categories: Sports, Academics, and Games.</p>
+ 				</div>
+ 				<div class="col-md-6" style="padding-top:25px">
+ 					<div class="container-fluid" style='width: 500px; margin: auto; font-size: 50px; background-color: lightgray'>
+						<div class='row' style='background-color: lightgreen; height: 80px; line-height: 80px; font-size: 50px;'>
+							<div class='col-sm-6' style='text-align:left'>{{num}}</div>
+							<div class='col-sm-6' style='text-align:right'>{{operator}}</div>
+						</div>
+						<div class='row'>
+							<button class='col-sm-2' ng-click='add("7")'>7</button>
+							<button class='col-sm-2' ng-click='add("8")'>8</button>
+							<button class='col-sm-2' ng-click='add("9")'>9</button>
+							<button class='col-sm-3' ng-click='sign()' ng-disabled='state!=="digit"'>+-</button>
+							<button class='col-sm-3' ng-click='cancel()'>C</button>
+						</div>
+						<div class='row'>
+							<button class='col-sm-2' ng-click='add("4")'>4</button>
+							<button class='col-sm-2' ng-click='add("5")'>5</button>
+							<button class='col-sm-2' ng-click='add("6")'>6</button>
+							<button class='col-sm-3' ng-click='add("-")' ng-disabled='state!=="digit"'>-</button>
+							<button class='col-sm-3' ng-click='add("x")' ng-disabled='state!=="digit"'>x</button>
+						</div>
+						<div class='row'>
+							<button class='col-sm-2' ng-click='add("1")'>1</button>
+							<button class='col-sm-2' ng-click='add("2")'>2</button>
+							<button class='col-sm-2' ng-click='add("3")'>3</button>
+							<button class='col-sm-3' ng-click='add("+")' ng-disabled='state!=="digit"'>+</button>
+							<button class='col-sm-3' ng-click='add("/")' ng-disabled='state!=="digit"'>/</button>
+						</div>
+						<div class='row'>
+							<button class='col-sm-2' ng-click='add("0")'>0</button>
+							<button class='col-sm-4' ng-click='add("00")' ng-disabled='state!=="digit"'>00</button>
+							<button class='col-sm-3' ng-click='add(".")' ng-disabled='state!=="digit" || point'>.</button>
+							<button class='col-sm-3' ng-click='equal()' ng-disabled='state!=="digit"'>=</button>
+						</div>
+					</div>
+ 				</div>
+	 		</div>
+	 		<p>
+	 	</div>
+	 </div>
+	 
+	
+
+	<!-- *****************************************************************************************************************
+	 FOOTER
+	 ***************************************************************************************************************** -->
+	 <div id="footerwrap">
+	 	<div class="container">
+		 	<div class="row">
+		 		<div class="col-lg-4">
+		 			<h4>About</h4>
+		 			<div class="hline-w"></div>
+		 			<p>I am a highly motivated, hard-working and quick-learning graduate student in Electrical and Computer Engineering with ability to articulate complex subject matter.</p>
+		 		</div>
+		 		<div class="col-lg-4">
+		 			<h4>Social Links</h4>
+		 			<div class="hline-w"></div>
+		 			<p>
+		 				<a href="https://www.facebook.com/profile.php?id=100000125777426"><i class="fa fa-facebook"></i></a>
+		 				<a href="http://www.linkedin.com/pub/jie-ping-wu/a7/752/b51/en"><i class="fa fa-linkedin"></i></a>
+		 				<a href="https://www.instagram.com/peterwu77/"><i class="fa fa-instagram"></i></a>
+		 				<a href="https://github.com/melo5566?tab=overview&from=2016-08-01&to=2016-08-31&utf8=%E2%9C%93"><i class="fa fa-github"></i></a>
+		 			</p>
+		 		</div>
+		 		<div class="col-lg-4">
+		 			<h4>Contact Me</h4>
+		 			<div class="hline-w"></div>
+		 			<p>
+		 				Phone: 734-639-0001<br/>
+		 				Email: jieping@umich.edu<br/>
+		 			</p>
+		 		</div>
+		 	
+		 	</div>
+	 	</div>
+	 </div>
+	 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/retina-1.1.0.js"></script>
+	<script src="assets/js/jquery.hoverdir.js"></script>
+	<script src="assets/js/jquery.hoverex.min.js"></script>
+	<script src="assets/js/jquery.prettyPhoto.js"></script>
+  	<script src="assets/js/jquery.isotope.min.js"></script>
+  	<script src="assets/js/custom.js"></script>
+
+
+    <script src="website.js"></script>
+  </body>
+</html>

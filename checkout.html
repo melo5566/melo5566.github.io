@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cart</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <script src="assets/js/bootstrap.min.js"></script>
+
+
+     <!-- Angular JS -->
+    <script src="angular.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <link href="assets/css/w3school.css" rel="stylesheet">
+    <script src="dist/ngCart.js"></script>
+    <script src="cart.js"></script>
+</head>
+
+<body ng-app="cartApp" ng-controller="myCtrl">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Peter Wu</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li class="dropdown">
+              <a href="x" class="dropdown-toggle" data-toggle="dropdown">INTERESTS<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="sport.html">SPORT</a></li>
+                <li><a href="#/music/">MUSIC</a></li>
+                <li><a href="travel.html">TRAVEL</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+
+    <div id='white'>
+        <div class="container">            
+            <div ng-show="true">
+                <hr/>
+                <h2>My Shopping Cart</h2>
+                <ngcart-cart></ngcart-cart>
+                <hr/>
+            </div>
+        </div>
+    </div>
+            
+
+
+    <!-- *****************************************************************************************************************
+     FOOTER
+     ***************************************************************************************************************** -->
+     <div id="footerwrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h4>About</h4>
+                    <div class="hline-w"></div>
+                    <p>I am a highly motivated, hard-working and quick-learning graduate student in Electrical and Computer Engineering with ability to articulate complex subject matter.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Social Links</h4>
+                    <div class="hline-w"></div>
+                    <p>
+                        <a href="https://www.facebook.com/profile.php?id=100000125777426"><i class="fa fa-facebook"></i></a>
+                        <a href="http://www.linkedin.com/pub/jie-ping-wu/a7/752/b51/en"><i class="fa fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/peterwu77/"><i class="fa fa-instagram"></i></a>
+                        <a href="https://github.com/melo5566?tab=overview&from=2016-08-01&to=2016-08-31&utf8=%E2%9C%93"><i class="fa fa-github"></i></a>
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Contact Me</h4>
+                    <div class="hline-w"></div>
+                    <p>
+                        Phone: 734-639-0001<br/>
+                        Email: jieping@umich.edu<br/>
+                    </p>
+                </div>
+            
+            </div>
+        </div>
+     </div>
+
+        <!--  TEMPALATES -->
+        <!--  TEMPALATES -->
+        <!--  TEMPALATES -->
+
+
+        <script type="text/ng-template" id="template/ngCart/cart.html">
+            <div class="alert alert-warning" role="alert" ng-show="ngCart.getTotalItems() === 0">
+                Your cart is empty
+            </div>
+
+            <div class="table-responsive col-lg-12" ng-show="ngCart.getTotalItems() > 0">
+
+                <table class="table table-striped ngCart cart">
+
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr ng-show="ngCart.getTax()">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Tax ({{ ngCart.getTaxRate() }}%):</td>
+                        <td>{{ ngCart.getTax() | currency }}</td>
+                    </tr>
+                    <tr ng-show="ngCart.getShipping()">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Shipping:</td>
+                        <td>{{ ngCart.getShipping() | currency }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Total:</td>
+                        <td>{{ ngCart.totalCost() | currency }}</td>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    <tr ng-repeat="item in ngCart.getCart().items track by $index">
+                        <td><span ng-click="ngCart.removeItemById(item.getId())" class="glyphicon glyphicon-remove"></span></td>
+
+                        <td>{{ item.getName() }}</td>
+                        <td><span class="glyphicon glyphicon-minus" ng-class="{'disabled':item.getQuantity()==1}"
+                                  ng-click="item.setQuantity(-1, true)"></span>&nbsp;&nbsp;
+                            {{ item.getQuantity() | number }}&nbsp;&nbsp;
+                            <span class="glyphicon glyphicon-plus" ng-click="item.setQuantity(1, true)"></span></td>
+                        <td>{{ item.getPrice() | currency}}</td>
+                        <td>{{ item.getTotal() | currency }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <button style="float:left" class="w3-btn w3-blue w3-ripple" ng-disabled="ngCart.getTotalItems() === 0" ng-click="checkout()">Checkout</button>
+                <a href="cart.html" style="float:right" class="w3-btn w3-black w3-ripple">Back to shop</a>
+            </div>
+
+        </script>
+
+        <script src="assets/js/custom.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

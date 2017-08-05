@@ -1,191 +1,160 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="renderer" content="webkit">
-    <title>Form</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title>Peter Wu</title>
+
+    <!-- Angular JS -->
+    <script src="angular.min.js"></script>
 
 
-</head>
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<body id="contact">
-    <!-- note header -->
-    <header id="contactbanner">
-        <nav class="topnavbar">
-            <ul>
-
-                <li id="welcomebtn"> <a href="index.html">WELCOME</a></li>
-                <li id="menubtn"> <a href="menu.html">MENU</a></li>
-                <li id="logobtn">
-                    <a href="indexnew.html"><img id="logo" src="logo/hwclogo.png" alt="logo"></a>
-                </li>
-                <li id="contactbtn"> <a href="contact.html">CONTACT</a></li>
-                <li id="reservationbtn"> <a href="reserve.html">RESERVE</a></li>
-
-            </ul>
-        </nav>
-        <h1>CONTACT</h1>
-        <p>SERVIVE HOURSE<br>TUESADY-THURSDAY 11:00AM-9:30PM<br> FRIDAY-SUNDAY 11:00AM-10:30PM <br> MONDAY CLOSED</p>
-        <p>PHONE<br>SEATTLE: (206) 568-1688 l BELLEVUE: (425) 590-9058</p>
-
-    </header>
-    <!--mapSection-->
-    <div id="mapSection">
-        <table id="wrapper">
-            <tr>
-                <th>BELLEVUE</th>
-                <th>SEATTLE</th>
-            </tr>
-            <tr class="map">
-                <td><iframe id="bellevuestore" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2690.1230959566437!2d-122.13489238436956!3d47.604296079184564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906c33697ede91%3A0xf00aae8f3a248d93!2sHardWok+Cafe!5e0!3m2!1szh-TW!2sus!4v1501785304142" width="500" height="360" style="border:0" allowfullscreen></iframe></td>
-                <td class="map"> <iframe id="seattlestore" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2690.3939506559504!2d-122.31899914961203!3d47.599028996393415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906abfae9642dd%3A0x42c43fff4a810a78!2sHardWok+Cafe!5e0!3m2!1szh-TW!2sus!4v1501785344209" width="500" height="360" style="border:0" allowfullscreen></iframe></td>
-            </tr>
-        </table>
-
-    </div>
-    <div id="reservation-container1">
-        <form class="reserveform1" action="formhandler.php" method="post">
-            <fieldset>
-                <legend>
-                    <h1>MAKE A BOOKING</h1>
-                </legend>
-                <p>If you are booking a table for party over 7, please reach out to us for the reservation <br>at (425) 590-9058 (Bellevue) or (206) 568-1688 (Seattle) </p>
-                <div class="step1">
-                    <h2>STEP 1/2</h2>
-                </div>
-
-                <label>PARTY </label>
-                <select name="party">
-               <option value="1">1 Person</option><option value="2">2 People</option><option value="3">3 People</option><option value="4">4 People</option><option value="5">5 People</option><option value="6">6 People</option>
-            </select>
-
-                <!-- cdn for modernizr, if you haven't included it already -->
-                <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
-                <!-- polyfiller file to detect and load polyfills -->
-                <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
-                <script>
-                    webshims.setOptions('waitReady', false);
-                    webshims.setOptions('forms-ext', {
-                        types: 'date'
-                    });
-                    webshims.polyfill('forms forms-ext');
-
-                </script>
-                <label>DATE </label>
-                <input type="date" id="user_date" />
-
-                <label> TIME </label>
-                <select name="time">
-               <option value="lunch">Lunch</option><option value="dinner">Dinner</option>
-            </select>
-                <input type="submit" value="READY TO BOOK">
-
-            </fieldset>
-        </form>
-    </div>
-    <!--note reservationform2-->
-    <div id="reservation-container2">
-        <form class="reserveform2" action="formhandler.php" method="post">
-            <fieldset>
-                <div class="step1">
-                    <h2>STEP 2/2</h2>
-                </div>
-                <!--Dont use a break tag here-->
-                <input type="text" placeholder=" Full Name" required>
-                <input type="email" placeholder=" Email Address" required>
-                <input type="tel" placeholder=" Phone Number" required>
-
-                <ul>
-                    <li><input type="checkbox" name="emailnotice[]" value="enote">Send me the booking noticification through email.</li>
-                    <li><input type="checkbox" name="phonenotice[]" value="pnote">Send the noticification via phone text </li>
+    <!-- Custom styles for this template -->
+    <link href="assets/css/timeline.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 
 
-                </ul>
-                <input type="submit" value="READY TO BOOK">
 
+	<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  	<style>
+  	.carousel-inner > .item > img,
+  	.carousel-inner > .item > a > img {
+      	width: 70%;
+      	margin: auto;
+  	}
+  	</style>
 
-            </fieldset>
+    
+    <script src="assets/js/modernizr.js"></script>
+  </head>
 
-        </form>
-    </div>
-
-
-    <!--note contactform-->
-
-    <div id="contact-container">
-
-        <form class="contactform" action="formhandler.php" method="post">
-            <fieldset>
-                <legend>
-                    <h1>YOUE THOUGHT MATTERS</h1>
-                </legend>
-
-
-                <p> We appreciate your interest in HardWok Cafe, and we want to do everything we can to make sure you have an enjoyable time with your family/friends when you come by for a visit. We’ll be happy to respond to any question or provide any information that meet your needs.</p>
-                <div class="contact-left">
-
-                    <input type="text" placeholder=" 姓名 Your full name" required>
-                    <input type="email" placeholder=" 信箱 Your email address" required>
-                    <input type="tel" placeholder=" 電話 Your phone number">
-                    <select name="inquery-area">
-                <option value="" selected data-default>Select your inquery topic</option>
-                <option value="visit">My Recent Visit</option><option value="general">General Inquiry</option><option value="investor">Investor Relations</option><option value="fundraising">Community Fundraising</option><option value="career">Careers</option><option value="others">Others</option>
-            </select>
-                    <div class="genderchoice">
-                        <input type="radio" id="gdchoice1" name="gender" value="male">
-                        <label for="gdchoice1">Male</label>
-
-                        <input type="radio" id="gdchoice2" name="gender" value="female">
-                        <label for="gdchoice2">Female</label>
-
-                        <input type="radio" id="gdchoice3" name="gender" value="other">
-                        <label for="gdchoice3">Other</label>
-                        <input type="radio" id="gdchoice4" name="gender" value="not to specify">
-                        <label for="gdchoice4">Prefer not to specify</label>
-                    </div>
-                </div>
-                <div class="contact-right">
-                    <textarea name="comment" id="comment" rows="10" placeholder="留言吧... Share your thought..."></textarea>
-
-
-                </div>
-                <input type="submit" value="SEND">
-            </fieldset>
-
-        </form>
-
-    </div>
-    <!-- note footer -->
-    <section id="footerSection">
-        <div class="servicetime">
-            <h2>WELCOME</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione ducimus earum provident perspiciatis obcaecati odio, error praesentium, libero minus! </p>
+<body ng-app="myApp" ng-controller="ShowController">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Peter Wu</a>
         </div>
-        <div class="socialmedias">
-            <h2>FOLLOW ALONG</h2>
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-instagram"></a>
-            <a href="#" class="fa fa-yelp"></a>
-        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+          	<li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li class="dropdown">
+              <a href="x" class="dropdown-toggle" data-toggle="dropdown">INTERESTS<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="sport.html">SPORT</a></li>
+                <li><a href="#/music/">MUSIC</a></li>
+                <li><a href="travel.html">TRAVEL</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+	 
+	<!-- <div ng-view class="page-home"></div> -->
+	<div id="headerwrap">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h1>Hi, I am Peter Wu</h1>
+					<h3>I am a passionate full stack software engineer.</h3>	
+				</div>
+			</div>
+	    </div>
+	</div>
+
+	<div id="service">
+		<div class="container">
+			<p style="text-align:center;"><img src="assets/img/me.jpg" class="img-circle" alt="Cinque Terre" style="max-width: 30%"></p>
+			<h4 style="text-align: center; margin:50px">I am interested in the full-time position of Software Engineer. As a second-year master student majoring in Computer Science and Engineering at the University of Michigan, my areas of interest are data analysis and backend database design. My related project experience has given me the skills to tackle challenges in software development. I am seeking for a job to bring fresh ideas and push technology forward.</h4>
+		</div>
+	</div>
 
 
 
-        <div class="copyright">
+	 <div id="service">
+	 	<h1 style="text-align:center">My Skills</h1>
+	 	<ul id="skill">
+			<li><span class="bar python">85%</span><h3>Python</h3></li>
+			<li><span class="bar javascript">80%</span><h3>JavaScript</h3></li>
+			<li><span class="bar nodejs">75%</span><h3>NodeJS</h3></li>
+			<li><span class="bar angularjs">75%</span><h3>AngularJS</h3></li>
+			<li><span class="bar sql">80%</span><h3>SQL</h3></li>
+			<li><span class="bar objectivec">80%</span><h3>Objective-C</h3></li>
+			<li><span class="bar html-css">80%</span><h3>HTML-CSS</h3></li>
+			<li><span class="bar cpp">70%</span><h3>C++</h3></li>
+		</ul>
+	 </div>
+	 
 
-            <p>Copyright 2017 l All Rights Reserved l <a href="../index.html"> Designed by Chia Ming </a>
-            </p>
-            <p class="valid"><a href="" target="_blank">IT'S VALID!!!</a></p>
-        </div>
 
-    </section>
+	<!-- *****************************************************************************************************************
+	 FOOTER
+	 ***************************************************************************************************************** -->
+	 <div id="footerwrap">
+	 	<div class="container">
+		 	<div class="row">
+		 		<div class="col-lg-4">
+		 			<h4>About</h4>
+		 			<div class="hline-w"></div>
+		 			<p>I am a highly motivated, hard-working and quick-learning graduate student in Electrical and Computer Engineering with ability to articulate complex subject matter.</p>
+		 		</div>
+		 		<div class="col-lg-4">
+		 			<h4>Social Links</h4>
+		 			<div class="hline-w"></div>
+		 			<p>
+		 				<a href="https://www.facebook.com/profile.php?id=100000125777426"><i class="fa fa-facebook"></i></a>
+		 				<a href="http://www.linkedin.com/pub/jie-ping-wu/a7/752/b51/en"><i class="fa fa-linkedin"></i></a>
+		 				<a href="https://www.instagram.com/peterwu77/"><i class="fa fa-instagram"></i></a>
+		 				<a href="https://github.com/melo5566?tab=overview&from=2016-08-01&to=2016-08-31&utf8=%E2%9C%93"><i class="fa fa-github"></i></a>
+		 			</p>
+		 		</div>
+		 		<div class="col-lg-4">
+		 			<h4>Contact Me</h4>
+		 			<div class="hline-w"></div>
+		 			<p>
+		 				Phone: 734-639-0001<br/>
+		 				Email: jieping@umich.edu<br/>
+		 			</p>
+		 		</div>
+		 	
+		 	</div>
+	 	</div>
+	 </div>
+	 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/retina-1.1.0.js"></script>
+	<script src="assets/js/jquery.hoverdir.js"></script>
+	<script src="assets/js/jquery.hoverex.min.js"></script>
+	<script src="assets/js/jquery.prettyPhoto.js"></script>
+  	<script src="assets/js/jquery.isotope.min.js"></script>
+  	<script src="assets/js/custom.js"></script>
 
-
-
-</body>
-
+    <script src="website.js"></script>
+  
+  </body>
 </html>
